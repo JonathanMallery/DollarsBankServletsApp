@@ -25,9 +25,6 @@ import com.dollarsbank.model.Transaction;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-//	CustomerController cust;
-//	AccountController acc;
-//	TransactionController tran;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,9 +38,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-//		cust = new CustomerController();
-//		acc = new AccountController();
-//		tran = new TransactionController(); 
+ 
 	}
 
 	/**
@@ -57,20 +52,16 @@ public class LoginServlet extends HttpServlet {
 		
 		@SuppressWarnings("unchecked")
 		ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
-		request.setAttribute("accounts",accounts);
+		
 		@SuppressWarnings("unchecked")
 		ArrayList<Transaction> transactions = (ArrayList<Transaction>) request.getAttribute("transactions");
-		request.setAttribute("transactions",transactions);
 		
 		@SuppressWarnings("unchecked")
 		ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("customers");
-		request.setAttribute("customers",customers);
+		
 		CustomerController cc = new CustomerController(customers);
 		Customer customer = cc.findCustomerByUsername(username);
 		
-		
-		
-//		Customer customer = cust.findCustomerByUsername(username);
 		request.setAttribute("currentCustomer", customer);
 //		request.setAttribute("currentAccount", acc.findAccountByCustomerId(customer.getCustomerId()));
 //		request.setAttribute("currentTransactions", tran.findTransactionsByAccountId(

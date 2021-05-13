@@ -41,6 +41,10 @@ public class TransactionController {
 		addTransaction(new Transaction(19,2,"make 2 into 4 and 4 into mo"));
 		addTransaction(new Transaction(20,2,"almost 10 dollars"));
 	}
+	
+	public TransactionController(ArrayList<Transaction> transactions) {
+		this.transactions = transactions;
+	}
 
 	public ArrayList<Transaction> getTransactions() {
 		return transactions;

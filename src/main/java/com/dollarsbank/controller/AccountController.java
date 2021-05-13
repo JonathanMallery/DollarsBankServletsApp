@@ -20,6 +20,10 @@ public class AccountController {
 			addAccount(new Account(3,1,450.00));		//Jonathan Mallery - jmall
 			addAccount(new Account(4,3,1_999.36));		//You Me - meyou
 		}
+		
+		public AccountController(ArrayList<Account> accounts) {
+			this.accounts = accounts;
+		}
 
 		public ArrayList<Account> getAccounts() {
 			return accounts;

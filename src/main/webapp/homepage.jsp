@@ -7,15 +7,11 @@
 	<div >
 		<h2>Please Choose An Option</h2>
 		<form >
-		
 			<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("allCustomers"); %>
-			<% System.out.println("FROM THE HOMEPAGE.JSP " + Arrays.deepToString(customers.toArray())); %>
+			<%-- System.out.println("FROM THE HOMEPAGE.JSP " + Arrays.deepToString(customers.toArray())); --%>
 			<% session.setAttribute("customers", customers); %>
-			
-			
-			
-			<% request.setAttribute("accounts", request.getAttribute("allAccounts")); %>
-			<% request.setAttribute("transactions", request.getAttribute("allTransactions")); %>
+			<% session.setAttribute("accounts", request.getAttribute("allAccounts")); %>
+			<% session.setAttribute("transactions", request.getAttribute("allTransactions")); %>
 			<div style="align-items: center;">
 				<button class="btn" type="button" onclick="location.href='login.jsp';" style="width: 130px; ">Login</button>
 				<button class="btn" type="button" onclick="location.href='createAccount.jsp';" style="width: 130px">Create Account</button>
