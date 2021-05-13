@@ -1,14 +1,19 @@
 <%@ include file="header.jsp" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="com.dollarsbank.model.Customer" %>
 
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding-top: 10px; background-color: tan">
 	<div >
 		<h2>Please Choose An Option</h2>
 		<form>
-			<% request.setAttribute("customers",request.getAttribute("allCustomers")); %>
-			<% request.setAttribute("accounts",request.getAttribute("allAccounts")); %>
-			<% request.setAttribute("transactions",request.getAttribute("allTransactions")); %>
+			<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("allCustomers"); %>
+			<% System.out.println("FROM THE HOMEPAGE.JSP " + Arrays.deepToString(customers.toArray())); %>
+			<% request.setAttribute("customers", customers); %>
+			<% request.setAttribute("accounts", request.getAttribute("allAccounts")); %>
+			<% request.setAttribute("transactions", request.getAttribute("allTransactions")); %>
 			<div style="align-items: center;">
-				<button class="btn" type="button" onclick="location.href='login.jsp';" style="width: 130px; ">Login</button></br>
+				<button class="btn" type="button" onclick="location.href='login.jsp';" style="width: 130px; ">Login</button>
 				<button class="btn" type="button" onclick="location.href='createAccount.jsp';" style="width: 130px">Create Account</button>
 			</div>	
 		</form>	

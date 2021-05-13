@@ -6,6 +6,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.dollarsbank.model.Account;
 import com.dollarsbank.model.Transaction;
@@ -52,11 +53,12 @@ public class TransactionController {
 	
 	
 	public ArrayList<Transaction> findTransactionsByAccountId(int id){
-		ArrayList<Transaction> transactionsOpt = this.transactions.forEach(transaction.gea);
+		ArrayList<Transaction> transactionsOpt = (ArrayList<Transaction>) this.transactions.stream()
+																	.filter(t -> t.getAccountId() == id)
+																	.collect(Collectors.toCollection(ArrayList::new));
 
 		if (transactionsOpt!=null) {
-		ArrayList<Transaction> transactions = transactionsOpt;
-		return transaction;
+			return transactionsOpt;
 		} else {
 		return null;
 		}

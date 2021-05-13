@@ -1,4 +1,19 @@
 <%@ include file="header.jsp" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="com.dollarsbank.model.Customer" %>
+<%@ page import="com.dollarsbank.model.Account" %>
+<%@ page import="com.dollarsbank.model.Transaction" %>
+
+
+<% System.out.println("FROM THE LOGIN.JSP " + request.getAttribute("allCustomers")); %>
+<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("customers"); %>
+<% request.setAttribute("customers",customers); %>
+<% ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts"); %>
+<% request.setAttribute("accounts",accounts); %>
+<% ArrayList<Transaction> transactions = (ArrayList<Transaction>) request.getAttribute("transactions"); %>
+<% request.setAttribute("transactions",transactions); %>
+
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; padding-top: 10px; background-color: tan">
 	<div style="align-content: center; width: 33%">			
 	</div>

@@ -18,6 +18,10 @@ public class CustomerController {
 		addCustomer(new Customer(4, "Ed", "Edd","Eddie","cartoon"));
 		
 	}
+	
+	public CustomerController(ArrayList<Customer> customers) {
+		this.customers = customers;
+	}
 
 	public ArrayList<Customer> getCustomers() {
 		return customers;

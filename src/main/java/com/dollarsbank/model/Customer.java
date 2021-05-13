@@ -57,7 +57,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer Info \n [CustomerId= " + getCustomerId() + ", Firstname= " + getFirstname()
+		return "\nCustomer Info \n [CustomerId= " + getCustomerId() + ", Firstname= " + getFirstname()
 				+ ", Lastname= " + getLastname() + ", Username= " + getUsername() + "]";
 	}
 	

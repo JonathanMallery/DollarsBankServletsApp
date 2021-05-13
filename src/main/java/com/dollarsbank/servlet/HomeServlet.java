@@ -1,7 +1,8 @@
 package com.dollarsbank.servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -49,15 +50,17 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Customer> allCustomers = cust.getCustomers();
+		
+		ArrayList<Customer> allCustomers = cust.getCustomers();
+		System.out.println("FROM THE HOMESERVLET " + Arrays.deepToString(allCustomers.toArray()));
 		request.setAttribute("allCustomers", allCustomers);
-		List<Account> allAccounts = acc.getAccounts();
+		
+		ArrayList<Account> allAccounts = acc.getAccounts();
 		request.setAttribute("allAccounts", allAccounts);
-		List<Transaction> allTransactions = tran.getTransactions();
+		ArrayList<Transaction> allTransactions = tran.getTransactions();
 		request.setAttribute("allTransactions", allTransactions);
 		
-		RequestDispatcher dispatcher = null;
-		dispatcher = request.getRequestDispatcher("homepage.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
 		dispatcher.forward(request, response);
 	}
 
