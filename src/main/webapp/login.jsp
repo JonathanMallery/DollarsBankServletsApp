@@ -6,8 +6,16 @@
 <%@ page import="com.dollarsbank.model.Transaction" %>
 
 
-<% System.out.println("FROM THE LOGIN.JSP " + request.getAttribute("allCustomers")); %>
-<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("customers"); %>
+<% System.out.println("FROM THE LOGIN.JSP " + session.getAttribute("customers")); %>
+
+<% ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("customers"); %>
+
+
+
+
+
+
+
 <% request.setAttribute("customers",customers); %>
 <% ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts"); %>
 <% request.setAttribute("accounts",accounts); %>

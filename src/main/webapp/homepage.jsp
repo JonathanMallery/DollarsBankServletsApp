@@ -6,10 +6,14 @@
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding-top: 10px; background-color: tan">
 	<div >
 		<h2>Please Choose An Option</h2>
-		<form>
+		<form >
+		
 			<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("allCustomers"); %>
 			<% System.out.println("FROM THE HOMEPAGE.JSP " + Arrays.deepToString(customers.toArray())); %>
-			<% request.setAttribute("customers", customers); %>
+			<% session.setAttribute("customers", customers); %>
+			
+			
+			
 			<% request.setAttribute("accounts", request.getAttribute("allAccounts")); %>
 			<% request.setAttribute("transactions", request.getAttribute("allTransactions")); %>
 			<div style="align-items: center;">
