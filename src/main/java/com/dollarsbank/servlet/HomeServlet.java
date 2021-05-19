@@ -52,7 +52,7 @@ public class HomeServlet extends HttpServlet {
 		
 		
 		ArrayList<Customer> allCustomers = cust.getCustomers();
-		System.out.println("FROM THE HOMESERVLET " + Arrays.deepToString(allCustomers.toArray()));
+//		System.out.println("FROM THE HOMESERVLET " + Arrays.deepToString(allCustomers.toArray()));
 		request.setAttribute("allCustomers", allCustomers);
 		
 		ArrayList<Account> allAccounts = acc.getAccounts();

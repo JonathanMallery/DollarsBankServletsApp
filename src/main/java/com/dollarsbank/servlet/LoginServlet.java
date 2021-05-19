@@ -51,21 +51,27 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
+		ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("accounts");
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Transaction> transactions = (ArrayList<Transaction>) request.getAttribute("transactions");
+		ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("transactions");
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("customers");
+		ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("customers");
 		
 		CustomerController cc = new CustomerController(customers);
 		Customer customer = cc.findCustomerByUsername(username);
+		session.setAttribute("currentCustomer", customer);
+		session.setAttribute("customers", customers);
 		
-		request.setAttribute("currentCustomer", customer);
-//		request.setAttribute("currentAccount", acc.findAccountByCustomerId(customer.getCustomerId()));
-//		request.setAttribute("currentTransactions", tran.findTransactionsByAccountId(
-//													acc.findAccountByCustomerId(customer.getCustomerId()).getAccountId()));
+		AccountController acc = new AccountController(accounts);
+		session.setAttribute("currentAccount", acc.findAccountByCustomerId(customer.getCustomerId()));
+		session.setAttribute("accounts", accounts);
+		
+		TransactionController tran = new TransactionController(transactions);
+		session.setAttribute("currentTransactions", tran.findTransactionsByAccountId(
+													acc.findAccountByCustomerId(customer.getCustomerId()).getAccountId()));
+		session.setAttribute("transactions", transactions);
 		
 		if (customer!=null && customer.getPassword().equals(password)) {
 			session.setAttribute("uname", username);

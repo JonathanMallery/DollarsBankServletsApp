@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.dollarsbank</groupId>
-  <artifactId>DollarsBankMavenApp</artifactId>
+  <artifactId>DollarsBankServletsApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>DollarsBankMavenApp Maven Webapp</name>
+  <name>DollarsBankServletsApp Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -42,7 +42,7 @@
   </dependencies>
 
   <build>
-    <finalName>DollarsBankMavenApp</finalName>
+    <finalName>DollarsBankServletsApp</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

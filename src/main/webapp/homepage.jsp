@@ -7,9 +7,7 @@
 	<div >
 		<h2>Please Choose An Option</h2>
 		<form >
-			<% ArrayList<Customer> customers = (ArrayList<Customer>) request.getAttribute("allCustomers"); %>
-			<%-- System.out.println("FROM THE HOMEPAGE.JSP " + Arrays.deepToString(customers.toArray())); --%>
-			<% session.setAttribute("customers", customers); %>
+			<% session.setAttribute("customers", request.getAttribute("allCustomers")); %>
 			<% session.setAttribute("accounts", request.getAttribute("allAccounts")); %>
 			<% session.setAttribute("transactions", request.getAttribute("allTransactions")); %>
 			<div style="align-items: center;">
