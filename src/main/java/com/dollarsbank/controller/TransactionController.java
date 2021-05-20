@@ -56,9 +56,9 @@ public class TransactionController {
 	}
 	
 	
-	public ArrayList<Transaction> findTransactionsByAccountId(int id){
+	public ArrayList<Transaction> findTransactionsByAccountId(int accountId){
 		ArrayList<Transaction> transactionsOpt = (ArrayList<Transaction>) this.transactions.stream()
-																	.filter(t -> t.getAccountId() == id)
+																	.filter(t -> t.getAccountId() == accountId)
 																	.collect(Collectors.toCollection(ArrayList::new));
 
 		if (transactionsOpt!=null) {

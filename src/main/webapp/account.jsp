@@ -5,6 +5,12 @@
 <%@ page import="com.dollarsbank.model.Account" %>
 <%@ page import="com.dollarsbank.model.Transaction" %>
 
+<% ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("allCustomers"); %>
+<% ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("allAccounts"); %>
+<% ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("allTransactions"); %>
+<% session.setAttribute("allCustomers",customers); %>
+<% session.setAttribute("allAccounts",accounts); %>
+<% session.setAttribute("allTransactions",transactions); %>
 
 <% Customer customer = (Customer) session.getAttribute("currentCustomer");  %>
 <% Account account = (Account) session.getAttribute("currentAccount");  %>

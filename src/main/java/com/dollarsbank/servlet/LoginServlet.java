@@ -51,29 +51,32 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("accounts");
+		ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("allAccounts");
+		session.setAttribute("allAccounts", accounts);
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("transactions");
+		ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("allTransactions");
+		session.setAttribute("allTransactions", transactions);
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("customers");
+		ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("allCustomers");
+		session.setAttribute("allCustomers", customers);
 		
 		CustomerController cc = new CustomerController(customers);
-		Customer customer = cc.findCustomerByUsername(username);
-		session.setAttribute("currentCustomer", customer);
-		session.setAttribute("customers", customers);
+	
+		session.setAttribute("currentCustomer", cc.findCustomerByUsername(username));
+		
 		
 		AccountController acc = new AccountController(accounts);
-		session.setAttribute("currentAccount", acc.findAccountByCustomerId(customer.getCustomerId()));
-		session.setAttribute("accounts", accounts);
+		session.setAttribute("currentAccount", acc.findAccountByCustomerId(cc.findCustomerByUsername(username).getCustomerId()));
+		
 		
 		TransactionController tran = new TransactionController(transactions);
-		session.setAttribute("currentTransactions", tran.findTransactionsByAccountId(
-													acc.findAccountByCustomerId(customer.getCustomerId()).getAccountId()));
-		session.setAttribute("transactions", transactions);
+		session.setAttribute("currentTransactions", tran.findLastFiveTransactionsByAccountId(
+													acc.findAccountByCustomerId(cc.findCustomerByUsername(username).getCustomerId()).getAccountId()));
 		
-		if (customer!=null && customer.getPassword().equals(password)) {
+		
+		if (cc.findCustomerByUsername(username)!=null && cc.findCustomerByUsername(username).getPassword().equals(password)) {
 			session.setAttribute("uname", username);
 			session.setAttribute("pwd", password);
 			dispatcher=request.getRequestDispatcher("account.jsp");

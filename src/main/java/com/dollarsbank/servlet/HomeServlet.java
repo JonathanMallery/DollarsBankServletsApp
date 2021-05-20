@@ -63,6 +63,10 @@ public class HomeServlet extends HttpServlet {
 		ArrayList<Transaction> allTransactions = tran.getTransactions();
 		session.setAttribute("allTransactions", allTransactions);
 		
+		session.setAttribute("customersController", cust);
+		session.setAttribute("accountsController", acc);
+		session.setAttribute("transactionsController", tran);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("homepage.jsp");
 		dispatcher.forward(request, response);
 	}
