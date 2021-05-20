@@ -8,7 +8,7 @@
 
 <% Customer customer = (Customer) session.getAttribute("currentCustomer");  %>
 <% Account account = (Account) session.getAttribute("currentAccount");  %>
-<% Transaction transaction = (Transaction) session.getAttribute("currentTransactions");  %>
+<% ArrayList<Transaction> custTransactions = (ArrayList<Transaction>) session.getAttribute("currentTransactions");  %>
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding: 10px; background-color: tan">
 	<div style="align-content: center; width: 33%">	
 		<%-- --%>

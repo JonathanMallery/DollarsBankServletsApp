@@ -6,7 +6,7 @@
 	<table>
 		<tbody>
 			<tr>
-				<td><%= lf.get(0) %></td>
+				<td><%= lf.get(0).toString() %></td>
 				<td><%= lf.get(1) %></td>
 				<td><%= lf.get(2) %></td>
 				<td><%= lf.get(3) %></td>
