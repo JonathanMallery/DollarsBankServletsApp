@@ -8,7 +8,10 @@
 
 <% Customer customer = (Customer) session.getAttribute("currentCustomer");  %>
 <% Account account = (Account) session.getAttribute("currentAccount");  %>
-<% ArrayList<Transaction> custTransactions = (ArrayList<Transaction>) session.getAttribute("currentTransactions");  %>
+<% ArrayList<Transaction> trans = (ArrayList<Transaction>) session.getAttribute("currentTransactions");  %>
+<% session.setAttribute("currentCustomer", customer);  %>
+<% session.setAttribute("currentAccount", account);  %>
+<% session.setAttribute("currentTransactions", trans);  %>
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding: 10px; background-color: tan">
 	<div style="align-content: center; width: 33%">	
 		<%-- --%>
@@ -75,7 +78,7 @@
 							</tbody>
 						</table>
 					</div>
-				<button class="btn" type="button" onclick="location.href='homepage.jsp';" style="width: 130px; ">Login</button>
+				<button class="btn" type="button" onclick="location.href='homepage.jsp';" style="width: 130px; ">Log Out</button>
 			</fieldset>
 		</div>
 	</div>

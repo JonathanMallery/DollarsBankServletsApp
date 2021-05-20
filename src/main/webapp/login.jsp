@@ -5,12 +5,12 @@
 <%@ page import="com.dollarsbank.model.Account" %>
 <%@ page import="com.dollarsbank.model.Transaction" %>
 
-<% ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("customers"); %>
-<% ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("accounts"); %>
-<% ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("transactions"); %>
-<% session.setAttribute("customers",customers); %>
-<% session.setAttribute("accounts",accounts); %>
-<% session.setAttribute("transactions",transactions); %>
+<% ArrayList<Customer> customers = (ArrayList<Customer>) session.getAttribute("allCustomers"); %>
+<% ArrayList<Account> accounts = (ArrayList<Account>) session.getAttribute("allAccounts"); %>
+<% ArrayList<Transaction> transactions = (ArrayList<Transaction>) session.getAttribute("allTransactions"); %>
+<% session.setAttribute("allCustomers",customers); %>
+<% session.setAttribute("allAccounts",accounts); %>
+<% session.setAttribute("allTransactions",transactions); %>
 
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; padding-top: 10px; background-color: tan">
 	<div style="align-content: center; width: 33%">			

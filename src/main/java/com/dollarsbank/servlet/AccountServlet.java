@@ -135,7 +135,8 @@ public class AccountServlet extends HttpServlet {
 		TransactionController tran = new TransactionController(transactions);
 		
 		ArrayList<Transaction> lastFive = tran.findLastFiveTransactionsByAccountId(account.getAccountId());
-		request.setAttribute("lastfive", lastFive);
+		System.out.println(lastFive.toString());
+		session.setAttribute("lastfive", lastFive);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("account.jsp");
 		
