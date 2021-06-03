@@ -19,18 +19,18 @@
 <% session.setAttribute("currentAccount", account);  %>
 <% session.setAttribute("currentTransactions", trans);  %>
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding: 10px; background-color: tan">
-	<div style="align-content: center; width: 33%">	
+	<div >	
 		<%-- --%>
 		<% String message = (String) request.getAttribute("uname");  %>
 		<h5>Logged in as <%=message%></h5>
 		<h4>Hello, <%= customer.getFirstname() %> </h4>		
 	</div>
 	<div >
-		<img style="width: 65%; margin: 0 auto;" alt="Money Picture" 
+		<img style="width: 100%; margin: 0 auto;" alt="Money Picture" 
 		src="https://www.washingtonpost.com/resizer/LgggStkyddK3qfFPzM3cO5Ch_aA=/
 		1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/EBULPVFULQI6PG4TXFYEHZL2EI.jpg">
-		<div style="align-content: center; width: 33%">
-			<fieldset style="width: 190%">
+		<div >
+			<fieldset style="width: 95%">
 				<legend style="margin: 0 auto;">Please Choose an option</legend>
 				<%-- --%>
 				<p style="color: blue">You have a balance of $<%= account.getBalance() %> </p>
@@ -55,14 +55,6 @@
 					<input type="number" placeholder="Enter Account Number" name="acountId">
 					<button class="btn" type="submit" name="selection" value="transfer">Confirm</button>
 				</form>
-				<form action="">
-					<label>Last 5 Transactions</label>
-					<input type="hidden" name="selection" value="customertransactions">
-					<% request.setAttribute("lft", request.getAttribute("lastfive"));  %>
-					<%@ include file="lasttransactions.jsp" %>
-					<button class="btn" type="submit" name="selection" value="customertransactions">Confirm</button>
-				</form>
-				
 					<label>Customer Info</label>
 					<input type="hidden" name="selection" value="info">
 
@@ -90,7 +82,20 @@
 			</fieldset>
 		</div>
 	</div>
-	<div style="align-content: center; width: 33%">
+	<div >
+		<fieldset >
+			<label>Last 5 Transactions</label>
+			<input type="hidden" name="selection" value="customertransactions">
+			<% if (trans!=null){  %>
+			<div>
+				<p><%= trans.get(0).toString() %></p>
+				<p><%= trans.get(1).toString() %></p>
+				<p><%= trans.get(2).toString() %></p>
+				<p><%= trans.get(3).toString() %></p>
+				<p><%= trans.get(4).toString() %></p>
+			</div>
+			<% } %>
+		</fieldset>
 	</div>
 </div>
 

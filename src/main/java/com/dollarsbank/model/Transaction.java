@@ -50,7 +50,7 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return "Transaction [TransactionId= " + getTransactionId() + ", AccountId= " + getAccountId()
+		return "[TransactionId= " + getTransactionId() + ", AccountId= " + getAccountId()
 				+ ", Description= " + getDescription() + "]";
 	}
 	
