@@ -63,7 +63,6 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("allCustomers", customers);
 		
 		CustomerController cc = new CustomerController(customers);
-	
 		session.setAttribute("currentCustomer", cc.findCustomerByUsername(username));
 		
 		
@@ -77,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if (cc.findCustomerByUsername(username)!=null && cc.findCustomerByUsername(username).getPassword().equals(password)) {
-			session.setAttribute("uname", username);
+			request.setAttribute("uname", username);
 			session.setAttribute("pwd", password);
 			dispatcher=request.getRequestDispatcher("account.jsp");
 		} else {

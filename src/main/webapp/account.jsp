@@ -21,6 +21,8 @@
 <div style="display: flex; align-items: center; justify-content: space-evenly; padding: 10px; background-color: tan">
 	<div style="align-content: center; width: 33%">	
 		<%-- --%>
+		<% String message = (String) request.getAttribute("uname");  %>
+		<h5>Logged in as <%=message%></h5>
 		<h4>Hello, <%= customer.getFirstname() %> </h4>		
 	</div>
 	<div >
